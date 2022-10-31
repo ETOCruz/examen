@@ -1,20 +1,49 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" color="primary">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Examen
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding-horizontal">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="mainContainer ion-margin-top">
+
+    <ng-container *ngIf="this.showUserLoginComponent">
+      <app-user-login [userName]="this.userLoginComponentUserNameArgument" (nipEmitter)=login($event)></app-user-login>
+    </ng-container>
+
+    <ng-container *ngIf="this.userAccountDetailComponent">
+      <app-user-account-detail [showUserName]='true' [balance]="(this.balance$ | async)?.balance"
+        [name]="(userAuthorized$ | async)?.name" [account]="(this.balance$ | async)?.account"></app-user-account-detail>
+      <ion-item class="ion-item-max-width" lines="none">
+        <ion-button class="ion-justify-content-center ion-no-margin" slot="start" size="default" color="primary"
+          expand="block" (click)="showUserAmountComponent(false)">Retirar</ion-button>
+        <ion-button *ngIf="!showButtonCalcular" size="default" class="ion-justify-content-center ion-no-margin"
+          slot="end" expand="block" color="primary" (click)="showUserAmountComponent(true)">Depositar</ion-button>
+      </ion-item>
+      <br>
+    </ng-container>
+
+    <ng-container *ngIf="this.showButtonIniciar">
+
+      <app-credit-card lastNumberCard='1708' userName='EUSEBIO TOMAS CRUZ'></app-credit-card>
+      <br>
+
+      <ion-item lines="none">
+        <ion-button class="btnIniciar" color="primary" expand="block" size="default" (click)="init()">Iniciar
+        </ion-button>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="this.showButtonLogginOut">
+      <ion-item lines="none">
+        <ion-button class="btnIniciar" color="primary" expand="block" size="default" (click)="loginOut()">Salir
+        </ion-button>
+      </ion-item>
+    </ng-container>
+
   </div>
+
 </ion-content>

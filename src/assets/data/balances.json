@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "balance": "78922",
+        "account": "0001ah423",
+        "cardNumber": "***-***-***-111"
+    },
+    {
+        "id": 2,
+        "balance": "782",
+        "account": "0002ah424",
+        "cardNumber": "***-***-***-222"
+    },
+    {
+        "id": 3,
+        "balance": "18192",
+        "account": "0003ah425",
+        "cardNumber": "***-***-***-333"
+    },
+    {
+        "id": 4,
+        "balance": "18",
+        "account": "0004ah426",
+        "cardNumber": "***-***-***-444"
+    },
+    {
+        "id": 5,
+        "balance": "873646",
+        "account": "0005ah427",
+        "cardNumber": "***-***-***-555"
+    },
+    {
+        "id": 6,
+        "balance": "888",
+        "account": "0006ah428",
+        "cardNumber": "***-***-***-666"
+    },
+    {
+        "id": 7,
+        "balance": "8498",
+        "account": "0007ah429",
+        "cardNumber": "***-***-***-777"
+    },
+    {
+        "id": 8,
+        "balance": "89882",
+        "account": "0008ah430",
+        "cardNumber": "***-***-***-888"
+    },
+    {
+        "id": 9,
+        "balance": "89566",
+        "account": "0009ah431",
+        "cardNumber": "***-***-***-999"
+    },
+    {
+        "id": 10,
+        "balance": "822396",
+        "account": "0010ah432",
+        "cardNumber": "***-***-***-999"
+    }
+]

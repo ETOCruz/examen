@@ -1,0 +1,27 @@
+<ion-card>
+  <ion-card-header>
+    <ion-avatar>
+      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+  </ion-card-header>
+  <ion-card-content>
+
+    <p class="notaCentrada">Los campos marcados con <ion-text color="danger">*</ion-text> son obligatorios</p>
+
+    <ion-item color="secondary" lines="none">
+      <ion-label class="label-amount">Usuario: <ion-text color="danger">*</ion-text> </ion-label>
+      <ion-input type="text" [disabled]='true'> {{this.userName}}
+      </ion-input>
+    </ion-item>
+
+    <ion-item color="secondary" lines="none">
+      <ion-label class="label-amount">NIP: <ion-text color="danger">*</ion-text> </ion-label>
+      <ion-input (ionChange)="handleNipChange($event)" type="number" maxlength="4" [debounce]="100" [clearInput]="true">
+      </ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="this.disableButton" class="btnFormulario ion-margin-vertical" size="small" expand="block"
+      (click)="login()">Entrar</ion-button>
+
+  </ion-card-content>
+</ion-card>

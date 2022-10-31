@@ -1,0 +1,50 @@
+<div>
+  <ion-card color="primary">
+    <ion-card-header>
+      <ion-card-subtitle>{{ this.title }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label class="label-amount" position="floating">Importe:</ion-label>
+        <ion-input (ionChange)="handleAmountChange($event)" type="number" [debounce]="200" [clearInput]="true"
+          placeholder="">
+        </ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ng-container *ngIf="(this.showErrorMaximumAmountAllowed$ | async)">
+    <ion-item class="ion-padding-horizontal" color="danger" lines="none">
+      <ion-icon slot="start" name="alert-circle-outline"></ion-icon>
+      <ion-label class="ion-text-wrap">
+        El monto máximo de dinero que podrás depositar o recibir en tu cuenta será de 15,000 pesos.
+      </ion-label>
+    </ion-item>
+  </ng-container>
+
+  <ng-container *ngIf="(this.showErrorInsufficientBalance$ | async)">
+    <ion-item class="ion-padding-horizontal" color="danger" lines="none">
+      <ion-icon slot="start" name="alert-circle-outline"></ion-icon>
+      <ion-label class="ion-text-wrap">
+        Saldo insificiente. Ingresa un importe igual o menor a tu saldo de ${{ this.balance | number }}.
+      </ion-label>
+    </ion-item>
+  </ng-container>
+  <ng-container *ngIf="(this.showNewBalance$ | async)">
+    <ion-item class="ion-padding-horizontal" color="secondary" lines="none">
+      <ion-icon slot="start" name="alert-circle-outline"></ion-icon>
+      <ion-label class="ion-text-wrap">
+        Después de la operación en tu cuenta quedarán ${{ this.finalBalance | number }}.
+      </ion-label>
+    </ion-item>
+  </ng-container>
+  <ion-item color="plm-primary" lines="none">
+
+    <ion-button class="btnContinuar" color="primary" expand="block" size="small"
+    (click)="cancel()">Cancelar</ion-button>
+
+    <ion-button [disabled]="!disableButton" class="btnContinuar" color="primary" expand="block" size="small"
+      (click)="continueOperation()">Continuar</ion-button>
+  </ion-item>
+</div>
+

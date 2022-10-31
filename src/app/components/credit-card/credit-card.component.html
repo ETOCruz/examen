@@ -1,0 +1,33 @@
+<div>
+  <form class="credit-card">
+    <div class="front">
+      <div class="card-data-row">
+        <div class="brand-name">Bank</div>
+        <img data-logo src="/assets/images/visa.svg" class="logo">
+      </div>
+      <fieldset class="form-group">
+        <legend>Card Number</legend>
+        <label for="cc-1">Card Number</label>
+        <div data-connected-inputs class="cc-inputs horizontal-input-stack">
+          <ion-input color="tertiary" maxlength="4" value="***" required></ion-input>
+          <ion-input color="tertiary" maxlength="4" value="***" required>
+          </ion-input>
+          <ion-input color="tertiary" maxlength="4" value="***" required>
+          </ion-input>
+          <ion-input color="tertiary" maxlength="4" required pattern="[0-9]{4}">{{ this.lastNumberCard }}
+          </ion-input>
+        </div>
+      </fieldset>
+      <div class="input-row">
+        <div class="form-group name-group">
+          <label for="name">Nombre</label>
+          <ion-input color="tertiary" type="text" id="name" required>
+            {{ this.userName }}
+          </ion-input>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+  </form>
+</div>
